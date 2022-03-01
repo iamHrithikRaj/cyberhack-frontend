@@ -1,0 +1,39 @@
+.background {
+    background-image: url("../images/login-bg.gif");
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.outer {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    height: 70vh;
+    width: 60vw;
+    background-color: #1e1f22;
+    opacity: 0.8;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.logocontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.amitylogo {
+    height: 10vh;
+}
+
+.cyberlogo {
+    height: 20%;
+}
