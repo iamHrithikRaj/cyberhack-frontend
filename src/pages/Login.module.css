@@ -8,6 +8,7 @@
 }
 
 .outer {
+    border-radius: 300px;
     display: flex;
     height: 100vh;
     justify-content: center;
@@ -15,25 +16,69 @@
 }
 
 .container {
+    border-radius: 10px;
     display: flex;
-    height: 70vh;
+    height: 60vh;
     width: 60vw;
     background-color: #1e1f22;
     opacity: 0.8;
     justify-content: flex-start;
     flex-direction: column;
 }
+@media only screen and (min-width: 900px) {
+    .container {
+      width: 30vw;
+    }
+}
 
 .logocontainer {
+    height: 45%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .amitylogo {
+    margin-top: 20px;
     height: 10vh;
+    margin-bottom: 20px;
+    background-color: rgb(255, 255, 255, 0.8) ;
+    border-radius: 5px;
 }
 
 .cyberlogo {
     height: 20%;
+}
+
+
+.form {
+    display: flex;
+    height: 40%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.forminput {
+    font-family: 'Lato', sans-serif;
+    border-radius: 10px;
+    text-align: center;
+    width: 60%;
+    padding: 12px 20px;
+    border: none;
+}
+
+.formbtn {
+    font-family: 'Lato', sans-serif;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 8px 20px;
+    background-color: rgb(240, 240, 10);
+    color: rgb(34, 21, 21);
+    transition: all 0.3s;
+}
+
+.formbtn:hover {
+    transform:scale(1.2,1.2);
 }
