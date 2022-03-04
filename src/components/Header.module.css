@@ -1,0 +1,11 @@
+.nav {
+    background-color: #1e1f22;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15vh;
+}
+
+.cyberhacklogo {
+    height: 7vh;
+}
