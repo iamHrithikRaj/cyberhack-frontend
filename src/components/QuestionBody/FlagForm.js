@@ -16,7 +16,7 @@ const FlagForm = () => {
         placeholder='{ Your Flag Goes Here }'
       />
       <button type='submit' className={classes.formbtn}>
-        Login
+        Submit
       </button>
     </form>
   );

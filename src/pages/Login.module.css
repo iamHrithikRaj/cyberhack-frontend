@@ -46,7 +46,13 @@
 }
 
 .cyberlogo {
-    height: 20%;
+    height: 15%;
+}
+
+@media only screen and (min-width: 520px) {
+    .cyberlogo {
+        height: 20%;
+    }
 }
 
 

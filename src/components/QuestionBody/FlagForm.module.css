@@ -19,6 +19,7 @@
     padding: 12px 20px;
     border: none;
     margin-bottom: 20px;
+    color: black;
 }
 
 .formbtn {
@@ -34,4 +35,10 @@
 
 .formbtn:hover {
     transform:scale(1.2,1.2);
+}
+
+@media only screen and (max-width: 520px) { 
+    .forminput {
+        width: 100%;
+    }
 }

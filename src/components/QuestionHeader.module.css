@@ -2,8 +2,8 @@
     padding: 5px 10px;
     width: 100%;
     display: flex;
-    justify-content: space-between;
     color: white;
+    justify-content: space-between;
 }
 
 .pointscontainer {
@@ -13,4 +13,23 @@
 
 .pointscontainer div {
     padding: 5px;
+}
+
+.innercontainer {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-around;
+
+}
+
+@media only screen and (max-width: 520px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .innercontainer {
+        justify-content: space-between;
+        margin: 5px 0;
+    }
 }

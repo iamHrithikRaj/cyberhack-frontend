@@ -8,7 +8,7 @@ import { CaretRightOutlined } from '@ant-design/icons';
 
 const { Panel } = Collapse;
 
-const Questions = () => {
+const Questions = (props) => {
   return (
     <Collapse
       bordered={false}
@@ -31,7 +31,8 @@ const Questions = () => {
           />
         }
         key='1'
-        className={classes.question}
+        // collapsible={props.collapsibles[0]}
+        className={classes.question1}
       >
         <QuestionBody question='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua' />
       </Panel>
@@ -46,7 +47,8 @@ const Questions = () => {
           />
         }
         key='2'
-        className={classes.question}
+        // collapsible={props.collapsibles[1]}
+        className={classes.question2}
       >
         <QuestionBody question='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua' />
       </Panel>
@@ -61,7 +63,8 @@ const Questions = () => {
           />
         }
         key='3'
-        className={classes.question}
+        // collapsible={props.collapsibles[2]}
+        className={classes.question3}
       >
         <QuestionBody question='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua' />
       </Panel>
@@ -76,8 +79,8 @@ const Questions = () => {
           />
         }
         key='4'
-        collapsible='disabled'
-        className={classes.question}
+        // collapsible={props.collapsibles[3]}
+        className={classes.question4}
       >
         <QuestionBody question='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua' />
       </Panel>

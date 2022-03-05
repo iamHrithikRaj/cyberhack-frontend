@@ -33,6 +33,17 @@ function Congrats() {
             }}
           />
           <img src={congoImage} alt='' className={classes.congoimg} />
+          <div className={classes.bottom}>
+            <div>We Received Your Responses.</div>
+            <div style={{ marginBottom: '2vh' }}>
+              Please check your mail for further instructions.
+            </div>
+            <hr className={classes.line} />
+            <div className={classes.trouble}>
+              Having Trouble?{' '}
+              <span className={classes.underline}>Contact us</span>
+            </div>
+          </div>
         </div>
       </div>
     </>

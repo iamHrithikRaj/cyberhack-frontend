@@ -5,14 +5,18 @@ import DiamondOutlinedIcon from '@mui/icons-material/DiamondOutlined';
 const QuestionHeader = (props) => {
   return (
     <div className={classes.container}>
-      <div>#{props.sno}</div>
-      <div>{props.title}</div>
-      <div className={classes.pointscontainer}>
-        <DiamondOutlinedIcon />
-        {props.points}
+      <div className={classes.innercontainer}>
+        <div>#{props.sno}</div>
+        <div>{props.title}</div>
       </div>
-      <div>
-        {props.solved}/{props.total}
+      <div className={classes.innercontainer}>
+        <div className={classes.pointscontainer}>
+          <DiamondOutlinedIcon />
+          {props.points}
+        </div>
+        <div>
+          {props.solved}/{props.total}
+        </div>
       </div>
     </div>
   );
