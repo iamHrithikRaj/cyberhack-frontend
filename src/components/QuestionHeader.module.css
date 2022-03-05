@@ -1,0 +1,16 @@
+.container {
+    padding: 5px 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+
+.pointscontainer {
+    display: flex;
+    align-items: center;
+}
+
+.pointscontainer div {
+    padding: 5px;
+}

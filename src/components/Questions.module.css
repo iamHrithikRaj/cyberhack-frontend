@@ -1,7 +1,19 @@
 .questions {
-    width: 60vw;
+    width: 65vw;
+    padding: 0 !important;
+    background-color: #141d2b;
 }
 
 .question {
-    width: 60vw;
+    padding: 0;
+    background-color: #263143;
+    margin-bottom: 24px;
+    overflow: hidden;
+    border: 0px;
+    border-radius: 2px;
+}
+
+
+.questiontext {
+    color: rgb(224, 224, 12);
 }

@@ -1,0 +1,64 @@
+.container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.buttons {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.question {
+    padding: 20px;
+    flex: 2;
+    color: white;
+}
+
+.buttonscontainer {
+    display: flex;
+    align-items: center;
+    margin: 10px 10px;
+    padding: 7px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: #172130;
+}
+
+.buttonscontainer:hover {
+    background-size: cover;
+    background-image: linear-gradient(to right bottom, #eff2f748, #ffffffab),url('../images/whirl.gif'); 
+}
+
+.buttonscontainer:hover .title {
+    color: #172130; 
+}
+.buttonscontainer:hover .subtitle {
+    color: #172130; 
+}
+.buttonscontainer:hover .icon {
+    color: #172130; 
+}
+
+.titlecontainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.title {
+    font-weight: 700;
+    padding: 2px;
+    color: white;
+}
+
+.subtitle {
+    padding: 2px;
+    color: white;
+}
+
+.icon {
+    padding: 10px;
+    color: white;
+}
