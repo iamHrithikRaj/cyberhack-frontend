@@ -31,7 +31,7 @@ const Questions = (props) => {
           />
         }
         key='1'
-        // collapsible={props.collapsibles[0]}
+        collapsible={props.collapsibles[0]}
         className={classes.question1}
       >
         <QuestionBody question='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua' />
@@ -47,7 +47,7 @@ const Questions = (props) => {
           />
         }
         key='2'
-        // collapsible={props.collapsibles[1]}
+        collapsible={props.collapsibles[1]}
         className={classes.question2}
       >
         <QuestionBody question='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua' />
@@ -63,7 +63,7 @@ const Questions = (props) => {
           />
         }
         key='3'
-        // collapsible={props.collapsibles[2]}
+        collapsible={props.collapsibles[2]}
         className={classes.question3}
       >
         <QuestionBody question='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua' />
@@ -79,7 +79,7 @@ const Questions = (props) => {
           />
         }
         key='4'
-        // collapsible={props.collapsibles[3]}
+        collapsible={props.collapsibles[3]}
         className={classes.question4}
       >
         <QuestionBody question='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua' />
