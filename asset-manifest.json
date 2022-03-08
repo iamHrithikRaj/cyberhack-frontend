@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/cyberhack-frontend/static/css/main.0dde54b8.css",
+    "main.js": "/cyberhack-frontend/static/js/main.6ae38132.js",
+    "static/media/whirl.gif": "/cyberhack-frontend/static/media/whirl.54de52d9d2cf996824d4.gif",
+    "static/media/congo-bg.gif": "/cyberhack-frontend/static/media/congo-bg.20e9fdd7bc291cc7567b.gif",
+    "static/media/water.png": "/cyberhack-frontend/static/media/water.1d7eb4491a3574859888.png",
+    "static/media/ice.png": "/cyberhack-frontend/static/media/ice.179a2d3f8e484b402ecb.png",
+    "static/media/fire.png": "/cyberhack-frontend/static/media/fire.a11a9209add38bd2ba4a.png",
+    "static/media/login-bg.gif": "/cyberhack-frontend/static/media/login-bg.72f90cbb50fde6048849.gif",
+    "static/media/wind.png": "/cyberhack-frontend/static/media/wind.c444c08164bf6942992a.png",
+    "static/media/congo-img.png": "/cyberhack-frontend/static/media/congo-img.9fbf0b4c4b26e0fce1ca.png",
+    "static/media/cyberlogo.png": "/cyberhack-frontend/static/media/cyberlogo.553baf74292391a6b8b4.png",
+    "static/media/amitylogo.png": "/cyberhack-frontend/static/media/amitylogo.43d68edc658ae3261659.png",
+    "index.html": "/cyberhack-frontend/index.html",
+    "main.0dde54b8.css.map": "/cyberhack-frontend/static/css/main.0dde54b8.css.map",
+    "main.6ae38132.js.map": "/cyberhack-frontend/static/js/main.6ae38132.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0dde54b8.css",
+    "static/js/main.6ae38132.js"
+  ]
+}
