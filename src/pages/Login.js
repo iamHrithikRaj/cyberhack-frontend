@@ -3,35 +3,31 @@ import classes from './Login.module.css';
 import amitylogo from '../images/amitylogo.png';
 import cyberlogo from '../images/cyberlogo.png';
 import axios from 'axios';
-import { Routes, Route, Navigate } from "react-router-dom";
-
 
 const Login = () => {
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
-  const baseURL = "https://pure-brook-94362.herokuapp.com/api/v1/team"
+  const baseURL = 'https://pure-brook-94362.herokuapp.com/api/v1/team';
 
   const submitHandler = (e) => {
     e.preventDefault();
     console.log(emailInputRef.current.value);
     console.log(passwordInputRef.current.value);
     const data = {
-      "teamName": emailInputRef.current.value,
-      "password": passwordInputRef.current.value
-    }
+      teamName: emailInputRef.current.value,
+      password: passwordInputRef.current.value,
+    };
     console.log(data);
-    axios.post(`${baseURL}/login`, data)
-    .then(function (response) {
-      console.log(response);
-      window.location.href="/game"
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-  
+    axios
+      .post(`${baseURL}/login`, data)
+      .then(function (response) {
+        console.log(response);
+        window.location.href = '/game';
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
-
-  
 
   return (
     <div className={classes.background}>

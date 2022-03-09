@@ -6,7 +6,7 @@ import Timer from './../components/Timer';
 import { useState, useCallback, useMemo, useEffect } from 'react';
 
 const GameScreen = () => {
-  const startTime = 1646545080000;
+  const startTime = 1646514060000;
   const questionTime = 1;
 
   const collapsibles = ['disabled', 'disabled', 'disabled', 'disabled'];
