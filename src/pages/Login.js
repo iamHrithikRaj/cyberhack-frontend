@@ -1,18 +1,23 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import classes from './Login.module.css';
 import amitylogo from '../images/amitylogo.png';
 import cyberlogo from '../images/cyberlogo.png';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { authActions } from '../store';
 
 const Login = () => {
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
+  const navigate = useNavigate();
   const baseURL = 'https://pure-brook-94362.herokuapp.com/api/v1/team';
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const dispatch = useDispatch();
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(emailInputRef.current.value);
-    console.log(passwordInputRef.current.value);
+
     const data = {
       teamName: emailInputRef.current.value,
       password: passwordInputRef.current.value,
@@ -20,14 +25,26 @@ const Login = () => {
     console.log(data);
     axios
       .post(`${baseURL}/login`, data)
-      .then(function (response) {
-        console.log(response);
-        window.location.href = '/game';
+      .then((response) => {
+        localStorage.setItem('auth-token', response.data);
+        navigate('/game');
       })
       .catch(function (error) {
         console.log(error);
       });
   };
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/game', { replace: true });
+      return;
+    }
+
+    const authtoken = localStorage.getItem('auth-token');
+    if (authtoken != null) {
+      dispatch(authActions.login(authtoken));
+    }
+  });
 
   return (
     <div className={classes.background}>

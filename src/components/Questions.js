@@ -5,6 +5,7 @@ import classes from './Questions.module.css';
 import QuestionHeader from './QuestionHeader';
 import QuestionBody from './QuestionBody';
 import { CaretRightOutlined } from '@ant-design/icons';
+import data from '../data';
 
 const { Panel } = Collapse;
 
@@ -34,7 +35,12 @@ const Questions = (props) => {
         collapsible={props.collapsibles[0]}
         className={classes.question1}
       >
-        <QuestionBody question='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua' />
+        <QuestionBody
+          question='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'
+          id={0}
+          title={data[0].question}
+          hint={data[0].hint}
+        />
       </Panel>
       <Panel
         header={
@@ -50,7 +56,12 @@ const Questions = (props) => {
         collapsible={props.collapsibles[1]}
         className={classes.question2}
       >
-        <QuestionBody question='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua' />
+        <QuestionBody
+          question='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'
+          id={1}
+          title={data[1].question}
+          hint={data[1].hint}
+        />
       </Panel>
       <Panel
         header={
@@ -66,7 +77,12 @@ const Questions = (props) => {
         collapsible={props.collapsibles[2]}
         className={classes.question3}
       >
-        <QuestionBody question='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua' />
+        <QuestionBody
+          question='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'
+          id={2}
+          title={data[2].question}
+          hint={data[2].hint}
+        />
       </Panel>
       <Panel
         header={
@@ -82,7 +98,12 @@ const Questions = (props) => {
         collapsible={props.collapsibles[3]}
         className={classes.question4}
       >
-        <QuestionBody question='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua' />
+        <QuestionBody
+          question='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'
+          id={3}
+          title={data[3].question}
+          hint={data[3].hint}
+        />
       </Panel>
     </Collapse>
   );

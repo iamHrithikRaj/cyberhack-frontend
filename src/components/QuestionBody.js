@@ -7,7 +7,7 @@ import Text from './QuestionBody/Text.js';
 import FlagForm from './QuestionBody/FlagForm';
 
 const QuestionBody = (props) => {
-  const [body, setBody] = useState(<Text text='This is the title' />);
+  const [body, setBody] = useState(<Text text={props.title} />);
 
   return (
     <div className={classes.container}>
@@ -15,7 +15,7 @@ const QuestionBody = (props) => {
         <div
           className={classes.buttonscontainer}
           onClick={() => {
-            setBody(<Text text='This is the title' />);
+            setBody(<Text text={props.title} />);
           }}
         >
           <div className={classes.icon}>
@@ -31,7 +31,7 @@ const QuestionBody = (props) => {
         <div
           className={classes.buttonscontainer}
           onClick={() => {
-            setBody(<FlagForm />);
+            setBody(<FlagForm id={props.id} />);
           }}
         >
           <div className={classes.icon}>
@@ -47,7 +47,7 @@ const QuestionBody = (props) => {
         <div
           className={classes.buttonscontainer}
           onClick={() => {
-            setBody(<Text text='This is the Hint' />);
+            setBody(<Text text={props.hint} />);
           }}
         >
           <div className={classes.icon}>

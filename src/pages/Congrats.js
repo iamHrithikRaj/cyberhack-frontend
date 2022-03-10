@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import classes from './Congrats.module.css';
 import cyberhacklogo from '../images/cyberlogo.png';
 import ReactTypingEffect from 'react-typing-effect';
 import congoImage from '../images/congo-img.png';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 function Congrats() {
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/', { replace: true });
+    }
+  });
   return (
     <>
       <div className={classes.container}>

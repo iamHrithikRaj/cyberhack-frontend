@@ -3,13 +3,17 @@ import classes from './GameScreen.module.css';
 import Questions from '../components/Questions';
 import Header from '../components/Header';
 import Timer from './../components/Timer';
-import { useState, useCallback, useMemo, useEffect } from 'react';
+import { useState, useCallback, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const GameScreen = () => {
-  const startTime = 1646514060000;
-  const questionTime = 1;
+  const startTime = 1646920080000;
+  const questionTime = 10;
 
-  const collapsibles = ['disabled', 'disabled', 'disabled', 'disabled'];
+  let collapsibles = ['disabled', 'disabled', 'disabled', 'disabled'];
+  const navigate = useNavigate();
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
   const getCount = () => {
     const start = new Date(startTime);
@@ -21,6 +25,11 @@ const GameScreen = () => {
   };
 
   const total = getCount();
+
+  if (total - 1 >= 4) {
+    navigate('/congratulations', { replace: true });
+  }
+
   for (let i = 0; i < Math.min(total, 4); i++) {
     collapsibles[i] = 'enabled';
   }
@@ -48,10 +57,13 @@ const GameScreen = () => {
   const [timer, setTimer] = useState(getTime());
 
   useEffect(() => {
+    if (!isAuthenticated) {
+      navigate('/', { replace: true });
+    }
     setInterval(() => {
       setTimer(getTime());
     });
-  }, []);
+  }, [isAuthenticated]);
 
   return (
     <>
