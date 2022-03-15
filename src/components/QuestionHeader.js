@@ -9,7 +9,7 @@ const QuestionHeader = (props) => {
         <div>{props.sno}</div>
         <div>{props.title}</div>
         <div className={classes.pointscontainer}>
-          <DiamondOutlinedIcon />
+          <DiamondOutlinedIcon /> &nbsp;
           {props.points}
         </div>
       </div>

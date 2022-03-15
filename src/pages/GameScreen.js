@@ -9,8 +9,8 @@ import { useSelector } from 'react-redux';
 import Rank from './../components/Rank';
 
 const GameScreen = () => {
-  const startTime = 1647362460000;
-  const questionTime = 7;
+  const startTime = 1647364560000;
+  const questionTime = 5;
 
   let collapsibles = ['disabled', 'disabled', 'disabled'];
   const navigate = useNavigate();

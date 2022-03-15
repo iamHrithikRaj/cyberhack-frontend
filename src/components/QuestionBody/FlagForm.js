@@ -20,9 +20,16 @@ const FlagForm = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    setSubmitting(true);
 
     const flag = flagInputRef.current.value;
+
+    if (flag === '') {
+      return;
+    }
+
+    setSubmitting(true);
+    setOpen(false);
+
     const authtoken = localStorage.getItem('auth-token');
 
     axios
