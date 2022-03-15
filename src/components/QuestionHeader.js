@@ -1,6 +1,6 @@
-import React from "react";
-import classes from "./QuestionHeader.module.css";
-import DiamondOutlinedIcon from "@mui/icons-material/DiamondOutlined";
+import React from 'react';
+import classes from './QuestionHeader.module.css';
+import DiamondOutlinedIcon from '@mui/icons-material/DiamondOutlined';
 
 const QuestionHeader = (props) => {
   return (
@@ -13,9 +13,6 @@ const QuestionHeader = (props) => {
         <div className={classes.pointscontainer}>
           <DiamondOutlinedIcon />
           {props.points}
-        </div>
-        <div>
-          {props.solved}/{props.total}
         </div>
       </div>
     </div>

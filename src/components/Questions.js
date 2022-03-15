@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Collapse } from 'antd';
 import 'antd/dist/antd.css';
 import classes from './Questions.module.css';
@@ -6,10 +6,15 @@ import QuestionHeader from './QuestionHeader';
 import QuestionBody from './QuestionBody';
 import { CaretRightOutlined } from '@ant-design/icons';
 import data from '../data';
+import zip1 from '../zip_files/zip1.zip';
+import zip2 from '../zip_files/zip2.zip';
+import zip3 from '../zip_files/zip3.zip';
 
 const { Panel } = Collapse;
 
 const Questions = (props) => {
+  const zips = [zip1, zip2, zip3];
+
   return (
     <Collapse
       bordered={false}
@@ -18,93 +23,32 @@ const Questions = (props) => {
       expandIcon={({ isActive }) => (
         <CaretRightOutlined rotate={isActive ? 90 : 0} />
       )}
-      defaultActiveKey={['1']}
+      defaultActiveKey={[props.uncollapsed]}
       expandIconPosition='right'
     >
-      <Panel
-        header={
-          <QuestionHeader
-            sno='1'
-            title='Lorem Ipsum Dolor'
-            points='10'
-            solved='1000'
-            total='1500'
-          />
-        }
-        key='1'
-        collapsible={props.collapsibles[0]}
-        className={classes.question1}
-      >
-        <QuestionBody
-          question='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'
-          id={0}
-          title={data[0].question}
-          hint={data[0].hint}
-        />
-      </Panel>
-      <Panel
-        header={
-          <QuestionHeader
-            sno='2'
-            title='Lorem Ipsum Dolor'
-            points='10'
-            solved='1000'
-            total='1500'
-          />
-        }
-        key='2'
-        collapsible={props.collapsibles[1]}
-        className={classes.question2}
-      >
-        <QuestionBody
-          question='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'
-          id={1}
-          title={data[1].question}
-          hint={data[1].hint}
-        />
-      </Panel>
-      <Panel
-        header={
-          <QuestionHeader
-            sno='3'
-            title='Lorem Ipsum Dolor'
-            points='10'
-            solved='1000'
-            total='1500'
-          />
-        }
-        key='3'
-        collapsible={props.collapsibles[2]}
-        className={classes.question3}
-      >
-        <QuestionBody
-          question='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'
-          id={2}
-          title={data[2].question}
-          hint={data[2].hint}
-        />
-      </Panel>
-      <Panel
-        header={
-          <QuestionHeader
-            sno='4'
-            title='Lorem Ipsum Dolor'
-            points='10'
-            solved='1000'
-            total='1500'
-          />
-        }
-        key='4'
-        collapsible={props.collapsibles[3]}
-        className={classes.question4}
-      >
-        <QuestionBody
-          question='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua'
-          id={3}
-          title={data[3].question}
-          hint={data[3].hint}
-        />
-      </Panel>
+      {data.map((d, i) => {
+        return (
+          <Panel
+            header={
+              <QuestionHeader
+                sno={`${i + 1}`}
+                title={d.title}
+                points={d.points}
+              />
+            }
+            key={`${i + 1}`}
+            collapsible={props.collapsibles[i]}
+            className={classes.question}
+          >
+            <QuestionBody
+              id={i}
+              title={d.question}
+              hint={d.hint}
+              zip={zips[i]}
+            />
+          </Panel>
+        );
+      })}
     </Collapse>
   );
 };

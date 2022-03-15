@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import classes from './Login.module.css';
 import amitylogo from '../images/amitylogo.png';
 import cyberlogo from '../images/cyberlogo.png';
@@ -6,10 +6,20 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { authActions } from '../store';
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
+import Alert from '@mui/material/Alert';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
+import Collapse from '@mui/material/Collapse';
 
 const Login = () => {
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
+
+  const [isAuthenticating, setIsAuthenticating] = useState(false);
+  const [open, setOpen] = useState(false);
+
   const navigate = useNavigate();
   const baseURL = 'https://pure-brook-94362.herokuapp.com/api/v1/team';
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
@@ -18,18 +28,25 @@ const Login = () => {
   const submitHandler = (e) => {
     e.preventDefault();
 
+    setIsAuthenticating(true);
+
     const data = {
       teamName: emailInputRef.current.value,
       password: passwordInputRef.current.value,
     };
+
     console.log(data);
     axios
       .post(`${baseURL}/login`, data)
       .then((response) => {
+        console.log(response.headers);
         localStorage.setItem('auth-token', response.data);
         navigate('/game');
+        setIsAuthenticating(false);
       })
       .catch(function (error) {
+        setIsAuthenticating(false);
+        setOpen(true);
         console.log(error);
       });
   };
@@ -48,6 +65,25 @@ const Login = () => {
 
   return (
     <div className={classes.background}>
+      <Collapse in={open}>
+        <Alert
+          action={
+            <IconButton
+              aria-label='close'
+              color='inherit'
+              size='small'
+              onClick={() => {
+                setOpen(false);
+              }}
+            >
+              <CloseIcon fontSize='inherit' />
+            </IconButton>
+          }
+          severity='error'
+        >
+          Authentication Falied
+        </Alert>
+      </Collapse>
       <div className={classes.outer}>
         <div className={classes.container}>
           <div className={classes.logocontainer}>
@@ -62,21 +98,27 @@ const Login = () => {
               alt='Cyberhack logo'
             />
           </div>
-          <form className={classes.form} onSubmit={submitHandler}>
-            <input
-              ref={emailInputRef}
-              className={classes.forminput}
-              placeholder='{ Username }'
-            />
-            <input
-              ref={passwordInputRef}
-              className={classes.forminput}
-              placeholder='{ Password }'
-            />
-            <button type='submit' className={classes.formbtn}>
-              Login
-            </button>
-          </form>
+          {isAuthenticating ? (
+            <Box className={classes.spinner} sx={{ display: 'flex' }}>
+              <CircularProgress color='secondary' />
+            </Box>
+          ) : (
+            <form className={classes.form} onSubmit={submitHandler}>
+              <input
+                ref={emailInputRef}
+                className={classes.forminput}
+                placeholder='{ Username }'
+              />
+              <input
+                ref={passwordInputRef}
+                className={classes.forminput}
+                placeholder='{ Password }'
+              />
+              <button type='submit' className={classes.formbtn}>
+                Login
+              </button>
+            </form>
+          )}
         </div>
       </div>
     </div>

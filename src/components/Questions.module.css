@@ -14,16 +14,16 @@
     border-radius: 2px;
 }
 
-/* .question {
+.question {
     padding: 0;
     background-color: #263143;
     margin-bottom: 24px;
     overflow: hidden;
     border: 0px;
     border-radius: 2px;
-} */
+}
 
-.question1 {
+/* .question1 {
     padding: 0;
     background-image: linear-gradient(to bottom right, #26314371, #263143bb), url('../images/wind.png');
     background-size: cover;
@@ -60,7 +60,7 @@
     overflow: hidden;
     border: 0px;
     border-radius: 2px;
-}
+} */
 
 
 .questiontext {

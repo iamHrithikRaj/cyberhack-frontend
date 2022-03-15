@@ -3,11 +3,7 @@ import { useState, useEffect, useCallback } from 'react';
 import classes from './Timer.module.css';
 
 const Timer = (props) => {
-  return (
-    <div className={classes.container}>
-      Next question unlocks in {props.timer} mins
-    </div>
-  );
+  return <div className={classes.container}>{props.timer}</div>;
 };
 
 export default Timer;

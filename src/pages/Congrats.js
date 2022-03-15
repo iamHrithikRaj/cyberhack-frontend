@@ -14,6 +14,8 @@ function Congrats() {
     if (!isAuthenticated) {
       navigate('/', { replace: true });
     }
+
+    localStorage.removeItem('auth-token');
   });
   return (
     <>
@@ -22,7 +24,7 @@ function Congrats() {
           <img className={classes.cyberhacklogo} src={cyberhacklogo} alt='' />
         </div>
         <div className={classes.congocontainer}>
-          <ReactTypingEffect
+          {/* <ReactTypingEffect
             text={['Congratulations!!!', 'You have made it!!!']}
             cursorRenderer={(cursor) => (
               <h1 className={classes.congotext}>{cursor}</h1>
@@ -41,7 +43,8 @@ function Congrats() {
                 </h1>
               );
             }}
-          />
+          /> */}
+          <h1 className={classes.congotext}>Thank You!!!</h1>
           <img src={congoImage} alt='' className={classes.congoimg} />
           <div className={classes.bottom}>
             <div>We Received Your Responses.</div>

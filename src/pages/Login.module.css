@@ -99,3 +99,10 @@
       width: 30vw;
     }
 }
+
+.spinner {
+    display: flex;
+    margin-top: 7vh;
+    align-items: center;
+    justify-content: center;
+}

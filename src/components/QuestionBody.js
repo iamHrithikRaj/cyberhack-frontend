@@ -5,33 +5,41 @@ import EmojiFlagsIcon from '@mui/icons-material/EmojiFlags';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import Text from './QuestionBody/Text.js';
 import FlagForm from './QuestionBody/FlagForm';
+import FlippingCard from './FlippingCard';
 
 const QuestionBody = (props) => {
   const [body, setBody] = useState(<Text text={props.title} />);
+  const [isHintTaken, setIsHintTaken] = useState(false);
+
+  const changeHintTaken = () => {
+    setIsHintTaken(true);
+  };
 
   return (
     <div className={classes.container}>
       <div className={classes.buttons}>
-        <div
-          className={classes.buttonscontainer}
-          onClick={() => {
-            setBody(<Text text={props.title} />);
-          }}
-        >
-          <div className={classes.icon}>
-            <DownloadingIcon />
-          </div>
-          <div className={classes.titlecontainer}>
-            <div className={classes.title}>Download Files</div>
-            <div className={classes.subtitle}>
-              Necessary files to play the challenge.
+        <a href={props.zip}>
+          <div
+            className={classes.buttonscontainer}
+            onClick={() => {
+              setBody(<Text text={props.title} />);
+            }}
+          >
+            <div className={classes.icon}>
+              <DownloadingIcon />
+            </div>
+            <div className={classes.titlecontainer}>
+              <div className={classes.title}>Download Files</div>
+              <div className={classes.subtitle}>
+                Necessary files to play the challenge.
+              </div>
             </div>
           </div>
-        </div>
+        </a>
         <div
           className={classes.buttonscontainer}
           onClick={() => {
-            setBody(<FlagForm id={props.id} />);
+            setBody(<FlagForm id={props.id} isHintTaken={isHintTaken} />);
           }}
         >
           <div className={classes.icon}>
@@ -47,7 +55,12 @@ const QuestionBody = (props) => {
         <div
           className={classes.buttonscontainer}
           onClick={() => {
-            setBody(<Text text={props.hint} />);
+            setBody(
+              <FlippingCard
+                hint={props.hint}
+                changeHintTaken={changeHintTaken}
+              />
+            );
           }}
         >
           <div className={classes.icon}>

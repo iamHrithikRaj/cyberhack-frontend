@@ -8,10 +8,10 @@ import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const GameScreen = () => {
-  const startTime = 1646920080000;
-  const questionTime = 10;
+  const startTime = 1647355320000;
+  const questionTime = 2;
 
-  let collapsibles = ['disabled', 'disabled', 'disabled', 'disabled'];
+  let collapsibles = ['disabled', 'disabled', 'disabled'];
   const navigate = useNavigate();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
@@ -26,13 +26,11 @@ const GameScreen = () => {
 
   const total = getCount();
 
-  if (total - 1 >= 4) {
+  if (total >= 4) {
     navigate('/congratulations', { replace: true });
   }
 
-  for (let i = 0; i < Math.min(total, 4); i++) {
-    collapsibles[i] = 'enabled';
-  }
+  collapsibles[Math.min(total - 1, 2)] = 'enabled';
 
   const getTime = useCallback(() => {
     const start = new Date(startTime);
@@ -49,7 +47,13 @@ const GameScreen = () => {
       min -= 1;
     }
 
-    const timeDiff = `${min} : ${sec}`;
+    let timeDiff = '';
+
+    if (total === 3) {
+      timeDiff = `Contest ends in ${min} : ${sec} mins`;
+    } else {
+      timeDiff = `Next question unlocks in ${min} : ${sec} mins`;
+    }
 
     return timeDiff;
   }, []);
@@ -74,7 +78,7 @@ const GameScreen = () => {
           <h1 className={classes.leveltext}>Level 1!</h1>
         </div>
         <div className={classes.questioncontainer}>
-          <Questions collapsibles={collapsibles} />
+          <Questions collapsibles={collapsibles} uncollapsed={total} />
         </div>
       </div>
     </>
