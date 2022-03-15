@@ -1,0 +1,13 @@
+.rank {
+    background-color: #263143;
+    color: white;
+    align-self: center;
+    margin-top: 10px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 10px;
+}

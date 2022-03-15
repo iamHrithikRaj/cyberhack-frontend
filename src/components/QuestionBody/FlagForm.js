@@ -5,12 +5,18 @@ import data from '../../data';
 import axios from 'axios';
 import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
-import { useSelector } from 'react-redux';
+import Alert from '@mui/material/Alert';
+import IconButton from '@mui/material/IconButton';
+import CloseIcon from '@mui/icons-material/Close';
+import Collapse from '@mui/material/Collapse';
 
 const FlagForm = (props) => {
   const flagInputRef = useRef();
   const url = 'https://pure-brook-94362.herokuapp.com/api/v1/team/submit';
   const [submitting, setSubmitting] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [error, setError] = useState('');
+  const [severity, setSeverity] = useState('');
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -18,7 +24,6 @@ const FlagForm = (props) => {
 
     const flag = flagInputRef.current.value;
     const authtoken = localStorage.getItem('auth-token');
-    console.log(authtoken);
 
     axios
       .post(
@@ -37,6 +42,17 @@ const FlagForm = (props) => {
       )
       .then((response) => {
         console.log(response);
+        if (response.data.error !== undefined) {
+          setOpen(true);
+          setSeverity('info');
+          setError(response.data.error);
+        }
+
+        if (response.data.score !== undefined) {
+          setOpen(true);
+          setSeverity('success');
+          setError('Successful Submission!!!');
+        }
         setSubmitting(false);
         flagInputRef.current.value = '';
       })
@@ -57,6 +73,25 @@ const FlagForm = (props) => {
           <div className={classes.flagcontainer}>
             <AssistantPhotoRoundedIcon fontSize='inherit' />
           </div>
+          <Collapse in={open} className={classes.alert}>
+            <Alert
+              action={
+                <IconButton
+                  aria-label='close'
+                  color='inherit'
+                  size='small'
+                  onClick={() => {
+                    setOpen(false);
+                  }}
+                >
+                  <CloseIcon fontSize='inherit' />
+                </IconButton>
+              }
+              severity={severity}
+            >
+              {error}
+            </Alert>
+          </Collapse>
           <input
             className={classes.forminput}
             ref={flagInputRef}

@@ -54,7 +54,9 @@ function Congrats() {
             <hr className={classes.line} />
             <div className={classes.trouble}>
               Having Trouble?{' '}
-              <span className={classes.underline}>Contact us</span>
+              <a href='mailto:cyberhack.helpdesk@gmail.com'>
+                <span className={classes.underline}>Contact us</span>
+              </a>
             </div>
           </div>
         </div>

@@ -23,7 +23,7 @@ const Questions = (props) => {
       expandIcon={({ isActive }) => (
         <CaretRightOutlined rotate={isActive ? 90 : 0} />
       )}
-      defaultActiveKey={[props.uncollapsed]}
+      activeKey={[props.uncollapsed]}
       expandIconPosition='right'
     >
       {data.map((d, i) => {

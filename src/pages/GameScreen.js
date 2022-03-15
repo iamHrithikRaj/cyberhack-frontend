@@ -6,20 +6,25 @@ import Timer from './../components/Timer';
 import { useState, useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import Rank from './../components/Rank';
 
 const GameScreen = () => {
-  const startTime = 1647355320000;
-  const questionTime = 2;
+  const startTime = 1647362460000;
+  const questionTime = 7;
 
   let collapsibles = ['disabled', 'disabled', 'disabled'];
   const navigate = useNavigate();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
+  const getDifferenceInMinutes = (date1, date2) => {
+    const diffInMs = date2 - date1;
+    return diffInMs / (1000 * 60);
+  };
   const getCount = () => {
     const start = new Date(startTime);
     const now = new Date();
 
-    let minDiff = now.getMinutes() - start.getMinutes();
+    let minDiff = getDifferenceInMinutes(start, now);
 
     return Math.floor(minDiff / questionTime) + 1;
   };
@@ -74,6 +79,7 @@ const GameScreen = () => {
       <Header />
       <div className={classes.body}>
         <div className={classes.level}>
+          <Rank />
           <Timer timer={timer} />
           <h1 className={classes.leveltext}>Level 1!</h1>
         </div>

@@ -8,8 +8,6 @@ const QuestionHeader = (props) => {
       <div className={classes.innercontainer}>
         <div>{props.sno}</div>
         <div>{props.title}</div>
-      </div>
-      <div className={classes.innercontainer}>
         <div className={classes.pointscontainer}>
           <DiamondOutlinedIcon />
           {props.points}
