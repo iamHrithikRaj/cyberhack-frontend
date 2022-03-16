@@ -9,8 +9,9 @@ import { useSelector } from 'react-redux';
 import Rank from './../components/Rank';
 
 const GameScreen = () => {
-  const startTime = 1647364560000;
-  const questionTime = 5;
+  const startTime = 1647449700000;
+  const questionTime = 1;
+  const numberOfQuestions = 3;
 
   let collapsibles = ['disabled', 'disabled', 'disabled'];
   const navigate = useNavigate();
@@ -18,8 +19,14 @@ const GameScreen = () => {
 
   const getDifferenceInMinutes = (date1, date2) => {
     const diffInMs = date2 - date1;
-    return diffInMs / (1000 * 60);
+    return Math.floor(diffInMs / (1000 * 60));
   };
+
+  const getDifferenceInSeconds = (date1, date2) => {
+    const diffInMs = date2 - date1;
+    return Math.floor(diffInMs / 1000);
+  };
+
   const getCount = () => {
     const start = new Date(startTime);
     const now = new Date();
@@ -31,30 +38,24 @@ const GameScreen = () => {
 
   const total = getCount();
 
-  if (total >= 4) {
+  if (total >= numberOfQuestions + 1) {
     navigate('/congratulations', { replace: true });
   }
 
-  collapsibles[Math.min(total - 1, 2)] = 'enabled';
+  collapsibles[Math.min(total - 1, numberOfQuestions - 1)] = 'enabled';
 
   const getTime = useCallback(() => {
     const start = new Date(startTime);
     const now = new Date();
 
-    let minDiff = (now.getMinutes() - start.getMinutes()) % questionTime;
-    let secDiff = now.getSeconds() - start.getSeconds();
+    let minDiff = getDifferenceInMinutes(start, now) % questionTime;
 
-    let sec = 0,
-      min = questionTime - minDiff;
-
-    if (secDiff > 0) {
-      sec = 60 - secDiff;
-      min -= 1;
-    }
+    let sec = 59 - (getDifferenceInSeconds(start, now) % 60),
+      min = questionTime - minDiff - 1;
 
     let timeDiff = '';
 
-    if (total === 3) {
+    if (getCount() === numberOfQuestions) {
       timeDiff = `Contest ends in ${min} : ${sec} mins`;
     } else {
       timeDiff = `Next question unlocks in ${min} : ${sec} mins`;
@@ -71,7 +72,7 @@ const GameScreen = () => {
     }
     setInterval(() => {
       setTimer(getTime());
-    });
+    }, 1000);
   }, [isAuthenticated]);
 
   return (
