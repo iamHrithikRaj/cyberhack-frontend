@@ -7,9 +7,9 @@ import { useState, useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Rank from './../components/Rank';
+import { startTime } from '../data';
 
 const GameScreen = () => {
-  const startTime = 1647449700000;
   const questionTime = 1;
   const numberOfQuestions = 3;
 

@@ -76,6 +76,17 @@
     transform:scale(1.2,1.2);
 }
 
+.formdisablebtn {
+    font-family: 'Lato', sans-serif;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 8px 20px;
+    background-color: rgb(83, 83, 61);
+    color: rgb(34, 21, 21);
+    cursor: not-allowed;
+}
+
 @media only screen and (min-width: 520px) {
     .cyberlogo {
         height: 20%;

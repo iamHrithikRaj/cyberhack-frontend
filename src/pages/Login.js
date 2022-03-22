@@ -12,6 +12,7 @@ import Alert from '@mui/material/Alert';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Collapse from '@mui/material/Collapse';
+import { startTime } from '../data';
 
 const Login = () => {
   const emailInputRef = useRef();
@@ -19,6 +20,7 @@ const Login = () => {
 
   const [isAuthenticating, setIsAuthenticating] = useState(false);
   const [open, setOpen] = useState(false);
+  const [isEnabled, setIsEnabled] = useState(false);
 
   const navigate = useNavigate();
   const baseURL = 'https://pure-brook-94362.herokuapp.com/api/v1/team';
@@ -28,12 +30,16 @@ const Login = () => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    setIsAuthenticating(true);
-
     const data = {
       teamName: emailInputRef.current.value,
       password: passwordInputRef.current.value,
     };
+
+    if (data.teamName === '' || data.password === '') {
+      return;
+    }
+
+    setIsAuthenticating(true);
 
     console.log(data);
     axios
@@ -60,6 +66,12 @@ const Login = () => {
     if (authtoken != null) {
       dispatch(authActions.login(authtoken));
     }
+
+    setInterval(() => {
+      if (new Date() >= new Date(startTime)) {
+        setIsEnabled(true);
+      }
+    }, 1000);
   });
 
   return (
@@ -113,7 +125,11 @@ const Login = () => {
                 className={classes.forminput}
                 placeholder='{ Password }'
               />
-              <button type='submit' className={classes.formbtn}>
+              <button
+                type='submit'
+                className={isEnabled ? classes.formbtn : classes.formdisablebtn}
+                disabled={!isEnabled}
+              >
                 Login
               </button>
             </form>
