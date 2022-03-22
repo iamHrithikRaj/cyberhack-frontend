@@ -6,6 +6,7 @@ import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import Text from './QuestionBody/Text.js';
 import FlagForm from './QuestionBody/FlagForm';
 import FlippingCard from './FlippingCard';
+import RemoveRedEyeOutlinedIcon from '@mui/icons-material/RemoveRedEyeOutlined';
 
 const QuestionBody = (props) => {
   const [body, setBody] = useState(<Text text={props.title} />);
@@ -18,13 +19,24 @@ const QuestionBody = (props) => {
   return (
     <div className={classes.container}>
       <div className={classes.buttons}>
+        <div
+          className={classes.buttonscontainer}
+          onClick={() => {
+            setBody(<Text text={props.title} />);
+          }}
+        >
+          <div className={classes.icon}>
+            <RemoveRedEyeOutlinedIcon />
+          </div>
+          <div className={classes.titlecontainer}>
+            <div className={classes.title}>View Description</div>
+            <div className={classes.subtitle}>
+              Brief about the problem statement.
+            </div>
+          </div>
+        </div>
         <a href={props.zip}>
-          <div
-            className={classes.buttonscontainer}
-            onClick={() => {
-              setBody(<Text text={props.title} />);
-            }}
-          >
+          <div className={classes.buttonscontainer}>
             <div className={classes.icon}>
               <DownloadingIcon />
             </div>
@@ -69,7 +81,7 @@ const QuestionBody = (props) => {
           <div className={classes.titlecontainer}>
             <div className={classes.title}>Hint</div>
             <div className={classes.subtitle}>
-              It will reduce your points by 1.
+              It will reduce your points by 50%.
             </div>
           </div>
         </div>

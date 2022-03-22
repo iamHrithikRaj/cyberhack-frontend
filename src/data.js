@@ -1,28 +1,28 @@
 const data = [
   {
-    title: 'title 1',
-    question: 'lorem ipsum 1',
-    hint: 'hint 1',
-    points: '10',
-    answer: 'abc',
+    id: '6239c7ed3e27a3af50eed73d',
+    title: 'Frontend Wizard',
+    question: 'Who created Javascript?',
+    hint: 'The person who created brave browser',
+    points: '100',
   },
   {
-    title: 'title 2',
-    question: 'lorem ipsum 2',
-    hint: 'hint 2',
-    points: '20',
-    answer: 'def',
+    id: '6239cd173e27a3af50eed754',
+    title: 'Are you a potter head?',
+    question: 'Severus Snape belongs to which house?',
+    hint: 'Nagini',
+    points: '100',
   },
   {
-    title: 'title 3',
-    question: 'lorem ipsum 3',
-    hint: 'hint 3',
-    points: '30',
-    answer: 'ghi',
+    id: '6239ccb13e27a3af50eed752',
+    title: 'Big Bang',
+    question: '___________________________ is referred to as the Unix epoch',
+    hint: 'The start of time',
+    points: '100',
   },
 ];
 
-const startTime = new Date('March 22 2022 18:52').getTime();
+const startTime = new Date('March 22 2022 19:36').getTime();
 
 export default data;
 export { startTime };

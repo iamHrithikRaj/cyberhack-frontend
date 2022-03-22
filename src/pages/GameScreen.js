@@ -10,7 +10,7 @@ import Rank from './../components/Rank';
 import { startTime } from '../data';
 
 const GameScreen = () => {
-  const questionTime = 1;
+  const questionTime = 2;
   const numberOfQuestions = 3;
 
   let collapsibles = ['disabled', 'disabled', 'disabled'];

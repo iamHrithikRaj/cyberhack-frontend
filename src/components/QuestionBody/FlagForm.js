@@ -36,7 +36,7 @@ const FlagForm = (props) => {
       .post(
         url,
         {
-          id: '623090a2e8e04a0cf99e7abd',
+          id: data[props.id].id,
           answer: flag,
           hintTaken: props.isHintTaken,
         },

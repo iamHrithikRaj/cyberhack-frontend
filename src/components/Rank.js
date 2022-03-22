@@ -15,7 +15,7 @@ const Rank = () => {
         .then((response) => {
           setRank(`${response.data.rank}`);
         });
-    }, 30000);
+    }, 60000);
   }, []);
   return (
     <div className={classes.rank}>
