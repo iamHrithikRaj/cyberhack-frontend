@@ -18,6 +18,11 @@ const FlagForm = (props) => {
   const [error, setError] = useState('');
   const [severity, setSeverity] = useState('');
 
+  const copyPasteHandler = (e) => {
+    e.preventDefault();
+    return false;
+  };
+
   const submitHandler = (e) => {
     e.preventDefault();
 
@@ -102,6 +107,8 @@ const FlagForm = (props) => {
           <input
             className={classes.forminput}
             ref={flagInputRef}
+            onPaste={copyPasteHandler}
+            onCopy={copyPasteHandler}
             placeholder='{ Your Flag Goes Here }'
           />
           <button type='submit' className={classes.formbtn}>

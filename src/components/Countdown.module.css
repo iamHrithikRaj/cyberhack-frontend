@@ -1,0 +1,9 @@
+.container {
+    background-color: #262729c7;
+    color: white;
+    display: flex;
+    align-self: center;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
+}

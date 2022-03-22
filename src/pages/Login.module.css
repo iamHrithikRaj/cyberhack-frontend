@@ -16,7 +16,7 @@
 .container {
     border-radius: 10px;
     display: flex;
-    height: 65vh;
+    height: 75vh;
     width: 80vw;
     background-color: #1e1f22;
     opacity: 0.8;
@@ -93,7 +93,7 @@
     }
 
     .container {
-        height: 65vh;
+        height: 75vh;
         width: 60vw;
     }    
 

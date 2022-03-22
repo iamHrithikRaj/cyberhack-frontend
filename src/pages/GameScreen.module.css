@@ -1,16 +1,20 @@
 .body {
     min-height: calc(100vh - 9vh - 44px);
     background-color: #141d2b;
+    display: flex;
+    flex-direction: column;
 }
 
 .level {
+    display: unset;
     text-align: center;
-    padding: 50px 0;
+    padding: 50px 0 30px;
     display: flex;
     flex-direction: column;
 }
 
 .leveltext {
+    margin-top: 20px;
     letter-spacing: 5px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: #f7c303;

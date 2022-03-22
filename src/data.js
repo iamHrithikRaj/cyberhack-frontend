@@ -22,7 +22,9 @@ const data = [
   },
 ];
 
-const startTime = new Date('March 22 2022 20:00').getTime();
+const startTime = new Date('March 22 2022 22:46').getTime();
+const questionTime = 5;
+const numberOfQuestions = 3;
 
 export default data;
-export { startTime };
+export { startTime, questionTime, numberOfQuestions };

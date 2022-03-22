@@ -7,12 +7,9 @@ import { useState, useCallback, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Rank from './../components/Rank';
-import { startTime } from '../data';
+import { startTime, questionTime, numberOfQuestions } from '../data';
 
 const GameScreen = () => {
-  const questionTime = 2;
-  const numberOfQuestions = 3;
-
   let collapsibles = ['disabled', 'disabled', 'disabled'];
   const navigate = useNavigate();
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
@@ -81,9 +78,9 @@ const GameScreen = () => {
       <div className={classes.body}>
         <div className={classes.level}>
           <Rank />
-          <Timer timer={timer} />
           <h1 className={classes.leveltext}>Level 1!</h1>
         </div>
+        <Timer timer={timer} />
         <div className={classes.questioncontainer}>
           <Questions collapsibles={collapsibles} uncollapsed={total} />
         </div>

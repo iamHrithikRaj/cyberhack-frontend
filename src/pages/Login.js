@@ -12,7 +12,8 @@ import Alert from '@mui/material/Alert';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
 import Collapse from '@mui/material/Collapse';
-import { startTime } from '../data';
+import { startTime, questionTime, numberOfQuestions } from '../data';
+import Countdown from './../components/Countdown';
 
 const Login = () => {
   const emailInputRef = useRef();
@@ -68,8 +69,15 @@ const Login = () => {
     }
 
     setInterval(() => {
+      const ended =
+        startTime +
+        questionTime * numberOfQuestions * 60 * 1000 -
+        new Date().getTime();
       if (new Date() >= new Date(startTime)) {
         setIsEnabled(true);
+      }
+      if (ended < 0) {
+        setIsEnabled(false);
       }
     }, 1000);
   });
@@ -97,6 +105,7 @@ const Login = () => {
       </Collapse>
       <div className={classes.outer}>
         <div className={classes.container}>
+          <Countdown />
           <div className={classes.logocontainer}>
             <img
               className={classes.amitylogo}
@@ -129,6 +138,7 @@ const Login = () => {
                 type='submit'
                 className={isEnabled ? classes.formbtn : classes.formdisablebtn}
                 disabled={!isEnabled}
+                style={{ marginBottom: '20px' }}
               >
                 Login
               </button>

@@ -16,6 +16,11 @@ const QuestionBody = (props) => {
     setIsHintTaken(true);
   };
 
+  const copyHandler = (e) => {
+    e.preventDefault();
+    return false;
+  };
+
   return (
     <div className={classes.container}>
       <div className={classes.buttons}>
@@ -86,7 +91,9 @@ const QuestionBody = (props) => {
           </div>
         </div>
       </div>
-      <div className={classes.question}>{body}</div>
+      <div className={classes.question} onCopy={copyHandler}>
+        {body}
+      </div>
     </div>
   );
 };
