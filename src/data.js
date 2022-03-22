@@ -22,7 +22,7 @@ const data = [
   },
 ];
 
-const startTime = new Date('March 22 2022 19:36').getTime();
+const startTime = new Date('March 22 2022 20:00').getTime();
 
 export default data;
 export { startTime };
