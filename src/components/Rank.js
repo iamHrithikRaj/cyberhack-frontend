@@ -19,8 +19,11 @@ const Rank = () => {
   }, []);
   return (
     <div className={classes.rank}>
-      Your rank is &nbsp;{' '}
-      <LocalFireDepartmentIcon style={{ color: '#ff3333' }} /> {rank}
+      <div className={classes.mbs}>
+        Your rank is &nbsp;{' '}
+        <LocalFireDepartmentIcon style={{ color: '#ff3333' }} /> {rank}
+      </div>
+      <div className={classes.info}>*rank is updated every 1 min</div>
     </div>
   );
 };

@@ -88,3 +88,8 @@
         display: none;
     }
 }
+
+.info {
+    font-size: 12px;
+    color: rgb(252, 223, 145);
+}

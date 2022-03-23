@@ -46,7 +46,12 @@ const QuestionBody = (props) => {
               <DownloadingIcon />
             </div>
             <div className={classes.titlecontainer}>
-              <div className={classes.title}>Download Files</div>
+              <div className={classes.title}>
+                Download Files <br />
+                <span className={classes.info}>
+                  *zip password: amityyouthfest
+                </span>
+              </div>
               <div className={classes.subtitle}>
                 Necessary files to play the challenge.
               </div>
